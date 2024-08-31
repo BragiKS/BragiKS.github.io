@@ -13,7 +13,7 @@ var maxNumPoints = 50 * 30;
 
 var index = 0;
 var points = [];
-var len = new Float32Array(0);
+var len = 0;
 
 window.onload = function init() {
   canvas = document.getElementById('gl-canvas');
@@ -51,11 +51,8 @@ window.onload = function init() {
 
     createCirclePoints(t);
 
-    gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(points));
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.drawArrays(gl.TRIANGLE_FAN, 0, points.length);
-
-    len = flatten(add(points, len));
+    gl.bufferSubData(gl.ARRAY_BUFFER, len, flatten(points));
+    len = len + 8 * points.length;
     index++;
   });
 
@@ -64,6 +61,7 @@ window.onload = function init() {
 
 // Create the points of the circle
 function createCirclePoints(cent) {
+  points = [];
   points.push(cent);
 
   var k = 30;
@@ -78,7 +76,8 @@ function createCirclePoints(cent) {
 }
 
 function render() {
-  // Add new points behind the others
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.drawArrays(gl.TRIANGLE_FAN, 0, points.length);
 
   window.requestAnimFrame(render);
 }
