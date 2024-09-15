@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      #win-text {
+        display: none;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 68px;
+        color: gold;
+      }
+    </style>
+  </head>
   <script id="vertex-shader" type="x-shader/x-vertex">
 
     attribute vec4 vPosition;
@@ -32,7 +42,7 @@
   <script type="text/javascript" src="shootbird.js"></script>
 
   <body>
-    <h2>Shoopdawoop</h2>
+    <h2>Shoot the Bird</h2>
     <canvas
       id="gl-canvas"
       width="1000"
@@ -40,6 +50,7 @@
       oncontextmenu="return false;"
       >> Oops ... your browser doesn't support the HTML5 canvas element
     </canvas>
+    <div id="win-text">You Win</div>
     <a class="tilbaka" href="../index.html">Til baka</a>
   </body>
 </html>
