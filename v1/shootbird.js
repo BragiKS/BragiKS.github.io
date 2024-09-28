@@ -59,7 +59,10 @@ window.onload = function init() {
 
 function moveBullets() {
   for (let i = 0; i < bullets.length; i++) {
-    bullet[i][1] += bullet_speed;
+    for (let j = 0; j < .length; j++) {
+        const element = array[j];
+        
+    }
   }
 }
 
