@@ -107,6 +107,7 @@ window.onload = function init() {
 
 function moveBullets() {
   for (let i = 0; i < bullets.length; i++) {
+<<<<<<< HEAD
     if (!bullets[i] || bullets[i].length !== 3) {
       continue;
     }
@@ -119,6 +120,11 @@ function moveBullets() {
         i--; // Adjust index after removal
         break;
       }
+=======
+    for (let j = 0; j < .length; j++) {
+        const element = array[j];
+        
+>>>>>>> afc8f918958d3c0557c5d8a08770125e11a71733
     }
   }
 }
